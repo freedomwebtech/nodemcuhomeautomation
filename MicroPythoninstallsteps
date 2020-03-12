@@ -1,0 +1,31 @@
+
+
+
+sudo pip3 install esptool
+
+
+dmesg | grep ttyUSB
+
+esptool.py --port /dev/ttyUSB0 flash_id
+
+esptool.py --port /dev/ttyUSB0 erase_flash
+
+
+python3 -m esptool --port /dev/ttyUSB0 --baud 115200 write_flash --flash_size detect --flash_mode dio 0 <firmwarefile> file
+
+
+
+sudo pip3 install rshell
+
+
+rshell --buffer-size=30 -p /dev/ttyUSB0 
+
+home/pi> boards
+
+home/pi> repl
+
+
+import machine
+>>> pin = machine.Pin(4, machine.Pin.OUT)
+>>> pin.on()
+>>> pin.off()
