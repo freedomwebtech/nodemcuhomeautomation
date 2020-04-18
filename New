@@ -1,0 +1,12 @@
+1)sudo apt install pptpd -y
+2)cd /etc/ppp
+3)nano chap-secrets
+4)add username server password and ip which i shown in video
+5)sudo nano /etc/pptpd.conf
+6)got to end of this file and add (localip, and remoteip)
+7)then restart service
+8)become root user
+9)echo 1 > /proc/sys/net/ipv4/ip_forward
+10)exit root user and run iptables command(iptables -t nat -A POSTROUTING -o (your network interface) -j MASQUERADE
+11)restart pptpd /etc/init.d/pptpd restart
+
